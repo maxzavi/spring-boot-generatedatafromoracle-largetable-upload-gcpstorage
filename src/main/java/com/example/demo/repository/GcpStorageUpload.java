@@ -11,12 +11,15 @@ import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
 
+import lombok.extern.log4j.Log4j2;
+
 @Repository
+@Log4j2
 public class GcpStorageUpload {
     @Value("${gcp.project_id}")
     private String projectId;
     @Value("${gcp.bucket_name}")
-    private String bucketName="mzv_test";
+    private String bucketName;
 
     public void upload(String path, String filename) throws IOException{
         Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
@@ -24,6 +27,6 @@ public class GcpStorageUpload {
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
         String filePath = path + filename;
         storage.createFrom(blobInfo, Paths.get(filePath));
+        log.info("File " + filename + " upload in bucket "+ bucketName);
     }
-
 }

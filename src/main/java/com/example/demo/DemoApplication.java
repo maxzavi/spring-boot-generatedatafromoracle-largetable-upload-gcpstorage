@@ -32,19 +32,23 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
+		boolean sendGcp=false;
 		log.info("Start");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
 		String name = "mytable.csv";
-
-		var result = demoRepository.getData();
+		var result= demoRepository.getDataShort();
+		
+		//var result = demoRepository.getData();
 		log.info(result.size());
 		try {
 			String dateString = sdf.format(Calendar.getInstance().getTime());
 			OpenCsvWriter writer = new OpenCsvWriter(pathFile + dateString + "_" + name);
 			writer.writeData(result);
 
-			//Upload to GCP
-			gcpStorageUpload.upload(pathFile,  dateString + "_" + name);
+			if(sendGcp){
+				//Upload to GCP
+				gcpStorageUpload.upload(pathFile,  dateString + "_" + name);
+			}
 
 		} catch (Exception e) {
 			log.error("Error writing data :" , e);
