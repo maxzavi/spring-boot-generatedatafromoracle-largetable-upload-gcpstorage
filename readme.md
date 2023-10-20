@@ -11,7 +11,7 @@ Create Spring Boot project with maven, using dependencies:
 Implements **CommandLineRunner** and add **run** method
 
 ```java
-public class DemoApplication implements CommandLineRunner {
+public class DemooraclegcpApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -59,7 +59,4 @@ gcp:
 
 
 
-
-
-//189865,40011504,MANZANA ISRAEL X KG,1,D2,FRESCOS,A06,FRUTAS Y VERDURAS,S12,FRUTAS,L057,FRUTAS,F0201,POMACEA,SF00602,MANZANA,40011504       ,MANZANA ISRAEL X KG,MKO0038,ARO,2060203777,CONSTRUCTORA E INVERSIONES N Y R S.,2,Activo,,,PE,NACIONAL,F,189865,791,7,26,110,422,1449,189865,2200400115047,F,099,Propio,,,PE,,,,F,,,1,,,,,212851,40011504-1               ,417783,1660470,42176,0001,,503015,KG,Kilogramos,KG,Kilogramos,KG,Kilogramos,,,,,,0000,Toda Temporada,,ARO MANZAN,2021-03-22 00:00:00.0,,,,,,"MANZANA ISRAEL X 
 
